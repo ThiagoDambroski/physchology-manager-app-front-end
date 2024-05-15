@@ -1,0 +1,56 @@
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.lightbox-content {
+    width: 50vw;
+    height: 80vh;
+    background-color: white;
+    overflow: auto;
+    position: relative;
+
+    scrollbar-width: thin;
+    /* For Firefox */
+    scrollbar-color: #aaa #fff;
+    /* For Firefox */
+}
+
+.lightbox-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lightbox-content::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    border-radius: 4px;
+}
+
+.lightbox-content::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+.lightbox-image {
+    max-width: 80vw;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 1;
+}
+
+body.lightbox-open {
+    overflow: hidden;
+}
