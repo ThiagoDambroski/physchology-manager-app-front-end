@@ -1,0 +1,56 @@
+.arrow-go-back {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.arrow-go-back:hover {
+    cursor: pointer;
+}
+
+.message-to-user-display {
+    font-size: 30px;
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.necessary-input-missing {
+    color: red;
+    font-size: 15px;
+}
+
+.necessary-input-complete {
+    color: blue;
+    font-size: 15px;
+}
+
+.no-item-found {
+    align-self: center;
+    font-size: 15px;
+}
+
+.pagination {
+    align-self: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.pagination button {
+    background-color: white;
+    border: 0px;
+    margin-left: 3px;
+}
+
+.pagination button:hover {
+    cursor: pointer;
+}
+
+.pagination-button-active {
+    color: rgb(0, 38, 255);
+}

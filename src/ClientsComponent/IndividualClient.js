@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import MenuClient from './MenuClient/MenuClient';
 import PutClient from './MenuClient/PutClient';
 import SessionManager from './MenuClient/SessionManager';
+import PagamentManager from './MenuClient/PagamentManager';
 
-function IndividualClient({ client }) {
+function IndividualClient({ client,limitTimeOfSession,limitDurationOfSession ,numberOfSessionPerPage,numberOfPagamentsPerPage}) {
   
     const [currentPage,setCurrentPage] = useState('Menu')
 
@@ -15,12 +16,14 @@ function IndividualClient({ client }) {
 
     const openLightbox = () => {
         setLightbox(true);
+        document.body.classList.add('no-scroll');
         
       }
     
       const closeLightbox = () => {
         setLightbox(false);
         setCurrentPage('Menu')
+        document.body.classList.remove('no-scroll');
       }
 
     
@@ -43,7 +46,11 @@ function IndividualClient({ client }) {
     const monthToday = today.getMonth();
     const yearToday = today.getFullYear();
 
-    const lastPayDate =  new Date(client.pagamentHistory[client.pagamentHistory.length - 1].payDate);
+    const sortPagamentList = client.pagamentHistory.sort((a,b) => {
+        return new Date(b.payDate) - new Date(a.payDate)
+    })
+
+    const lastPayDate =  new Date(sortPagamentList[0].payDate);
     const lastPayYear = lastPayDate.getFullYear();
     const lastPayMonth = lastPayDate.getMonth();
 
@@ -59,7 +66,7 @@ function IndividualClient({ client }) {
             if (payday < dayToday) {
                 return 'red';
             } else if (payday === dayToday) {
-                return 'yellow';
+                return 'gold';
             } else {
                 return 'green';
                 }
@@ -71,14 +78,20 @@ function IndividualClient({ client }) {
 
 
   return (
-    <div>
-      <p>Nome: {client.name}</p>
-      <p>Data de nascimento: {formatDate(client.birthDate)}</p>
-      <p>Dia de pagamento: <span style={{color:pagamentColor(client)}}>{client.payday}</span></p>
-      <p>{client.active ? 'Cliente Ativo' : 'Client Desativado'}</p>
+    <div className={`${client.active ? 'individual-client-div-active' : 'individual-client-div-not-active'} individual-client-div`}>
 
 
-      <button onClick={openLightbox} >Menu do Cliente</button>
+      
+      <p className='individual-client-name'>{client.name}</p>
+      <div className='individual-client-informations'>
+        <p >Data de registro: {formatDate(client.entranceDate)}</p>
+        <p>{client.clientPayOnDay ? 'Cliente pagamento no ato' : <>Dia de pagamento: <span style={{color:pagamentColor(client)}}>{client.payday}  {pagamentColor(client) === 'red' ? '(Atrasado)' : pagamentColor(client) === 'green' ? '(Em dia)' : pagamentColor(client) === 'gold' ? '(Vence Hoje)' : ''}</span></>}</p>
+      </div>
+     
+      <p className='individual-client-active'>{client.active ? 'Cliente ativo' : 'Cliente desativado'}</p>
+
+
+      <button onClick={openLightbox} className='indivudal-client-button-menu' >Menu do cliente</button>
 
 
       {lightbox && (
@@ -90,19 +103,35 @@ function IndividualClient({ client }) {
                     <MenuClient
                         client={client}
                         setCurrentPage={setCurrentPage}
+                        limitTimeOfSession={limitTimeOfSession}
+                        limitDurationOfSession={limitDurationOfSession}
                     />
                 }
                 {currentPage === 'PutClient' &&
                     <PutClient
                         client ={client}
                         setCurrentPage = {setCurrentPage}
+                        limitTimeOfSession={limitTimeOfSession}
+                        limitDurationOfSession={limitDurationOfSession}
                     />
                 }
-                {currentPage == 'SessionManager' &&
+                {currentPage === 'SessionManager' &&
                     <SessionManager
                         client ={client}
                         setCurrentPage = {setCurrentPage}
+                        limitTimeOfSession={limitTimeOfSession}
+                        limitDurationOfSession={limitDurationOfSession}
+                        numberOfSessionPerPage={numberOfSessionPerPage}
                     />
+
+                }
+                {currentPage === 'PagamentManager' && 
+                    <PagamentManager
+                        client = {client}
+                        setCurrentPage = {setCurrentPage}
+                        numberOfPagamentsPerPage={numberOfPagamentsPerPage}
+                    />
+
 
                 }
                 

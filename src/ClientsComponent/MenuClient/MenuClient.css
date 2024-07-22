@@ -1,0 +1,576 @@
+.menu-client-menu {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-client-menu h1 {
+    color: blue;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.menu-client-informations {
+    font-size: 13px;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    color: grey;
+}
+
+.menu-client-div-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    padding-top: 10px;
+}
+
+.menu-client-div-buttons button {
+    margin-bottom: 25px;
+    width: 250px;
+    height: 50px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: 0.5s all ease-in;
+}
+
+.menu-client-div-buttons button:hover {
+    cursor: pointer;
+    border-color: antiquewhite;
+    background-color: rgb(77, 77, 77);
+    color: white;
+}
+
+.menu-client-add-session {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+/*Put client*/
+
+.put-client-arrow {
+    font-size: 20px;
+    color: blue;
+}
+
+.put-client-arrow:hover {
+    cursor: pointer;
+}
+
+.put-client-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.put-client-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.put-client-form-div {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.put-client-name-input {
+    width: 400px;
+    font-size: 15px;
+    height: 30px;
+}
+
+.put-client-date-input {
+    width: 75px;
+    height: 20px;
+}
+
+.put-client-number-input {
+    width: 45px;
+    height: 20px;
+    font-size: 15px;
+}
+
+.put-client-button-deactivated {
+    width: 100px;
+    height: 28px;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+
+    font-size: 10px;
+    transition: 0.3s all ease-in;
+}
+
+.put-client-button-deactivated:disabled {
+    cursor: not-allowed;
+    transition: none;
+    border-color: white;
+    background-color: rgba(189, 182, 182, 0.589);
+    color: black;
+}
+
+.put-client-button-deactivated:hover {
+    cursor: pointer;
+
+}
+
+.button-red {
+    background-color: rgba(255, 0, 0, 0.726);
+}
+
+.button-red:hover {
+
+    background-color: rgba(124, 4, 4, 0.89);
+}
+
+.button-red:disabled {
+    cursor: not-allowed;
+    background-color: grey;
+}
+
+.button-green {
+    background-color: green;
+}
+
+.button-green:hover {
+    background-color: rgb(1, 65, 1);
+}
+
+.put-client-button-save {
+    align-self: center;
+    width: 300px;
+    height: 50px;
+    margin-top: 20px;
+    font-size: 15px;
+    background-color: white;
+    font-weight: 400;
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: 0.5s all ease-in;
+}
+
+
+.put-client-button-save:hover {
+    cursor: pointer;
+    border-color: antiquewhite;
+    background-color: rgb(77, 77, 77);
+    color: white;
+}
+
+.put-client-button-save:disabled {
+    cursor: not-allowed;
+    transition: none;
+    border-color: white;
+    background-color: rgba(189, 182, 182, 0.589);
+    color: black;
+}
+
+
+/*Session Manager*/
+
+.session-manager-page {
+    padding-top: 5px;
+}
+
+.session-manager-session {
+    display: flex;
+    align-items: center;
+    background-color: rgb(111, 181, 247);
+    color: white;
+    margin-top: -5px;
+    flex-direction: column;
+    border-bottom: 1px solid grey;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+
+.session-manager-modify-button {
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: 0.3s all ease-in;
+}
+
+.session-manager-modify-button:hover {
+    cursor: pointer;
+    background-color: grey;
+    border: 0px;
+    color: white;
+
+}
+
+.session-manager-sessions-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.session-manager-filters-div {
+    width: 100%;
+    border-top: 1px solid rgb(7, 70, 70);
+    border-bottom: 1px solid rgb(7, 70, 70);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.session-manager-filter-title {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.session-manager-filters-sub-div {
+    margin-top: 10px;
+    display: flex;
+    max-width: 90%;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.session-manager-filters-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.session-manager-filters-item label {
+    font-size: 15px;
+}
+
+.session-manager-filters-item input {
+    min-height: 35px;
+}
+
+.session-manager-filters-item select {
+    min-height: 30px;
+}
+
+.session-manager-filters-mounth-year-picker {
+    width: 80px;
+}
+
+.sessions-register-title {
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.sessions-register-individual-session {
+    display: flex;
+    background-color: rgba(76, 255, 91, 0.801);
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    border-bottom: 1px solid rgb(148, 147, 147);
+    transition: 0.3s all ease-in;
+}
+
+.session-register-tags {
+    font-size: 12px;
+    margin: 0px;
+    padding: 10px;
+
+
+}
+
+.sessions-register-individual-session:hover {
+    cursor: pointer;
+    background-color: rgba(6, 146, 17, 0.801);
+    color: white;
+}
+
+/*Put Session*/
+
+.put-session-page {
+
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.put-session-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.put-session-form-div {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.put-session-form-div select {
+    width: 135px;
+    font-size: 15px;
+    height: 35px;
+
+}
+
+.put-session-form-div-input {
+    font-size: 15px;
+    width: 60px;
+    height: 30px;
+}
+
+.put-session-button {
+    margin-top: 5px;
+    width: 250px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: 0.3s all ease-in;
+}
+
+.put-session-button:hover {
+    cursor: pointer;
+    background-color: grey;
+    border: 0px;
+    color: white;
+}
+
+.put-session-button:disabled {
+    cursor: not-allowed;
+    transition: none;
+    border-color: white;
+    background-color: rgba(189, 182, 182, 0.589);
+    color: black;
+}
+
+/*Session View*/
+
+.session-view-description {
+    width: 98%;
+    padding: 5px;
+    height: 450px;
+    font-family: 'Verdana';
+    resize: none;
+    overflow-y: auto;
+}
+
+.session-view-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.session-view-attended {
+    align-self: start;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.session-viw-tags-div {
+    display: flex;
+
+
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.session-viw-tags-div textarea {
+    margin-top: 5px;
+    width: 500px;
+    height: 50px;
+    resize: none;
+}
+
+.session-view-button {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: 0.3s all ease-in;
+}
+
+.session-view-button:hover {
+    cursor: pointer;
+    background-color: grey;
+    border: 0px;
+    color: white;
+}
+
+.session-view-button:disabled {
+    cursor: not-allowed;
+    background-color: grey;
+    color: black;
+}
+
+.session-view-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+
+
+/*Pagament Manager */
+
+.pagament-manager-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.individual-pagament {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    background-color: rgba(128, 128, 128, 0.349);
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding: 5px;
+}
+
+.individual-pagament-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+
+.individual-pagament-tags {
+    font-size: 12px;
+    color: grey;
+}
+
+.pagament-manager-add-button {
+    width: 400px;
+    font-size: 15px;
+    font-weight: 200;
+    height: 40px;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    align-self: center;
+    transition: 0.3s all ease-in;
+}
+
+.pagament-manager-empty-pagament {
+    padding-top: 15px;
+    font-size: 15px;
+    align-self: center;
+}
+
+.pagament-manager-filters-div {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.pagament-manager-year-picker {
+    font-size: 15px;
+    width: 60px;
+}
+
+
+
+.pagament-manager-add-button:hover {
+    cursor: pointer;
+    background-color: rgb(204, 204, 204);
+    color: white;
+    border: 0px;
+}
+
+.indidivual-pagament-button {
+    width: 200px;
+    height: 25px;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+
+    transition: 0.3s all ease-in;
+}
+
+.indidivual-pagament-button:hover {
+    cursor: pointer;
+    background-color: rgb(32, 31, 31);
+    color: white;
+    border: 0px;
+}
+
+/*Add pagament*/
+
+.add-pagament-form {
+    display: flex;
+    padding-left: 5px;
+    flex-direction: column;
+}
+
+.add-pagament-form-div {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.add-pagament-form-div-input {
+    width: 100px;
+    font-size: 15px;
+    height: 30px;
+}
+
+.add-pagament-form-check {
+    width: 18px;
+    height: 18px;
+
+}
+
+.add-pagament-form-div-input-delay {
+    width: 50px;
+    font-size: 15px;
+    height: 35px;
+}
+
+.add-pagament-form-button {
+    width: 280px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+
+    transition: 0.3s all ease-in;
+}
+
+.add-pagament-form-button:hover {
+    cursor: pointer;
+    background-color: rgb(204, 204, 204);
+    color: white;
+    border: 0px;
+}

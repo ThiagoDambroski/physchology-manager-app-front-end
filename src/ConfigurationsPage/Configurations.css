@@ -1,0 +1,28 @@
+.configurations-page {
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.configurations-content {
+    display: flex;
+    padding-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.configurations-form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.configurations-form-div {
+    margin-bottom: 10px;
+}
+
+
+.configurations-form-div label {
+    font-size: 23px;
+}

@@ -1,0 +1,128 @@
+.calender-page {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.calender-page-h1 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-weight: 100;
+    border-bottom: 1px solid grey;
+}
+
+.calender-page-h1 h1 {
+    font-weight: 100;
+}
+
+
+.calender-ul {
+    list-style: none;
+    width: 100%;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding-left: 0px;
+}
+
+.calender-li {
+    min-width: 120px;
+    padding-right: 0px;
+    min-height: 100vh;
+    border-left: 1px solid grey;
+
+}
+
+.calender-li:last-child {
+    border-right: 1px solid grey;
+}
+
+.calender-day-head {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    width: 100%;
+    border-bottom: 1px solid grey;
+}
+
+.calender-day-head p {
+    margin-bottom: 5px;
+}
+
+.calender-client-ul {
+    padding-top: 10px;
+    padding-left: 0px;
+    list-style: none;
+}
+
+.calender-client-li {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+
+    border-bottom: 1px solid rgb(39, 38, 38);
+}
+
+.calender-client-name {
+    align-self: center;
+    font-size: 15px;
+}
+
+.calender-client-li-p {
+    font-size: 13px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.calender-client-li button {
+    align-self: center;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 130px;
+    height: 30px;
+    margin-bottom: 10px;
+    transition: 0.3s all ease-in;
+}
+
+.calender-client-li button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(107, 105, 105);
+}
+
+/*Register Session*/
+
+.register-session-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.register-session-form label {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.register-session-tags-div {
+    margin-top: 10px;
+}
+
+.client-registration-div-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client-registration-tags-input {
+    width: 550px;
+    height: 30px;
+    font-size: 15px;
+}

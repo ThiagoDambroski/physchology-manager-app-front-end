@@ -5,9 +5,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.carousel-div {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease;
+
+}
+
+.carousel-item {
+  display: flex;
+  width: 50vw;
+  overflow-y: hidden;
+  flex: 0 0 100%;
+
+
 }
