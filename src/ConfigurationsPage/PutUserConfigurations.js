@@ -5,6 +5,21 @@ function PutUserConfigurations({user}) {
 
     const API_PUT_USER = `http://localhost:8080/user/put/${user.userId}`
 
+    const [isCapsLockOn, setIsCapsLockOn] = useState(false);
+    const [hasUppercaseInName, setHasUppercaseInName] = useState(false);
+     const [hasUppercaseInPassword, setHasUppercaseInPassword] = useState(false);
+
+    const handleKeyUp = (event,field) => {
+        const value = event.target.value;
+        setIsCapsLockOn(event.getModifierState('CapsLock'));
+
+        if (field === 'name') {
+        setHasUppercaseInName(/[A-Z]/.test(value));
+        } else if (field === 'password') {
+        setHasUppercaseInPassword(/[A-Z]/.test(value));
+        }
+    };
+
     const [name,setName] = useState(user.name)
 
     const handleNameChange  = (event) => {
@@ -183,17 +198,21 @@ function PutUserConfigurations({user}) {
         </div>
         <div className='configurations-content'>
             <form onSubmit={handleSubmit} className='configurations-form'>
+                {isCapsLockOn && <p className='caps-lock-warning'>Caps Lock está ativado!</p>}
                 <div className='configurations-form-div'>
                     <label>Nome de usuario: </label>
-                    <input type='text' value={name} onChange={handleNameChange} className='put-client-name-input'/>
+                    <input type='text' onKeyUp={(event) => handleKeyUp(event, 'name')}  value={name} onChange={handleNameChange} className='put-client-name-input'/>
+                    
                 </div>
+                {hasUppercaseInName && <p className='uppercase-warning'>O campo "nome de usuario" contém letras maiúsculas!</p>}
                 <div className='configurations-form-div'>
                     <label>Senha: </label>
-                    <input type='text' value={password} onChange={handlePasswordChange} className='put-client-name-input'/>
+                    <input type='text' onKeyUp={(event) => handleKeyUp(event, 'password')} value={password} onChange={handlePasswordChange} className='put-client-name-input'/>
                 </div>
+                {hasUppercaseInPassword && <p className='uppercase-warning'>O campo "senha" contém letras maiúsculas!</p>}
                 <div className='configurations-form-div'>
                     <label>Limite do horário da sessão: </label>
-                    <input type='text' value={limitTimeOfSession} onChange={(e) => handleLimitTimeOfSessionChange(e.target.value)} className='client-registration-time'/>
+                    <input type='text'  value={limitTimeOfSession} onChange={(e) => handleLimitTimeOfSessionChange(e.target.value)} className='client-registration-time'/>
                 </div>
                 <div className='configurations-form-div'>
                     <label>Limite do tempo da sessão: </label>

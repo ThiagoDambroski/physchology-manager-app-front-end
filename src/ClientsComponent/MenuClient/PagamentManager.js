@@ -47,11 +47,14 @@ function PagamentManager({client,setCurrentPage,numberOfPagamentsPerPage}) {
   setDelayFilter(event.target.value)
  }
 
+
+
  const [sortOptions,setSortOptions] = useState('recent')
 
  const handleSortOptionsChange = (event) => {
   setSortOptions(event.target.value)
  }
+
 
 
  const [tagsFilter,setTagsFilter] = useState('')
@@ -289,6 +292,9 @@ const totalWithFilter = () => {
                         <option value={'noDelay'}>Apenas sem atraso</option>
                       </select>
                   </div>
+
+                 
+
                   <div className='session-manager-filters-item'>
                       <label>Organizar por</label>
                       <select value={sortOptions} onChange={handleSortOptionsChange}>

@@ -62,6 +62,32 @@ function ClientRegistration({limitTimeOfSession,limitDurationOfSession}) {
         setEmail(event.target.value)
     }
 
+    const [cpf,setCpf] = useState(null)
+
+    const formatCpf = (value) => {
+        const cleaned = value.replace(/\D/g, '');
+        const match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})$/);
+        if (match) {
+          return `${match[1]}${match[2] ? '.' : ''}${match[2]}${match[3] ? '.' : ''}${match[3]}${match[4] ? '-' : ''}${match[4]}`;
+        }
+        return value;
+      };
+    
+      const handleCpfChange = (event) => {
+        const value = event.target.value;
+        setCpf(formatCpf(value));
+      };
+
+
+      
+    const [address,setAddress] = useState(null)
+    
+      const handleAddressChange = (event) => {
+        const value = event.target.value;
+        setAddress(value);
+      };
+
+
     const [telephone,setTelephone] = useState(null) 
 
     const handleTelephoneChange = (input) => {
@@ -318,11 +344,13 @@ function ClientRegistration({limitTimeOfSession,limitDurationOfSession}) {
         if(clientPayOnDay || !checkIfTimeConflict(sessionDay,sessionDaysArray,timeOfSession,durationOfSession,bisemanalCheck)){
 
             //Post new client
-            const parsedBirthDate = birthDate ?  new Date(birthDate) : new Date();
+            const parsedBirthDate = birthDate ?  new Date(birthDate) : null;
             const newClient = {
                 name:name,
                 birthDate: parsedBirthDate,
                 email:email,
+                cpf:cpf,
+                address:address,
                 telephone:telephone,
                 payday:payDay === 0 ? 1 : payDay,
                 entranceDate:new Date(),
@@ -437,6 +465,14 @@ function ClientRegistration({limitTimeOfSession,limitDurationOfSession}) {
                 <div className='client-registration-div'>
                     <label>Telefone: </label>
                     <input type='text' value={telephone} onChange={(e) => handleTelephoneChange(e.target.value)} className='put-client-name-input'/>
+                </div>
+                <div className='client-registration-div'>
+                    <label>CPF: </label>
+                    <input type='text' value={cpf} onChange={handleCpfChange} maxLength={14} className='put-client-name-input'/>
+                </div>
+                <div className='client-registration-div'>
+                    <label>Endereço: </label>
+                    <input type='text' value={address} onChange={handleAddressChange} className='put-client-name-input'/>
                 </div>
                 <div className='client-registration-div'>
                     <label>Cliente pagamento no ato</label>

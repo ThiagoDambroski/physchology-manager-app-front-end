@@ -58,7 +58,7 @@ function ConfigurationsPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if(!(user.password === passwordForEntry)){
+        if(!(user.password.trim() === passwordForEntry.trim())){
            
             setLoginError('Senha incorreta')
           }else{

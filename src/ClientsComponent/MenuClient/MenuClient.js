@@ -32,7 +32,9 @@ function MenuClient({client,limitTimeOfSession,limitDurationOfSession,setCurrent
   };
 
   const formatBirthdateAndAge = (birthdate) => {
-  
+    if(birthdate === null){
+      return 'Sem registro'
+    }
     const formattedDate = format(birthdate, 'dd/MM/yyyy', { locale: ptBR });
     const today = new Date();
     const age = differenceInYears(today, birthdate);
@@ -307,7 +309,9 @@ function MenuClient({client,limitTimeOfSession,limitDurationOfSession,setCurrent
         const newPagament = {
             payDate:parsedPagamentDate,
             value:pagamentValue,
-            delay: delayOnPagament ? pagamentDelay : 0
+            delay: delayOnPagament ? pagamentDelay : 0,
+            pagamentTags: tagsPagamentInput
+        
         }
         const postOptionsPagament = {
             method: 'POST',
@@ -352,10 +356,12 @@ function MenuClient({client,limitTimeOfSession,limitDurationOfSession,setCurrent
       <>
         <div className='menu-client-menu'>
           <h1 >{client.name}</h1>
-          <span className='menu-client-informations'>Email: {client.email ? client.email : 'Nenhum e-mail registrado'}</span>
-          <span  className='menu-client-informations'>Telefone: {client.telephone ? client.telephone : 'Nenhum telefone registrado'} </span>
+          <span className='menu-client-informations'>Email: {client.email ? client.email : 'Sem registro'}</span>
+          <span  className='menu-client-informations'>Telefone: {client.telephone ? client.telephone : 'Sem registro'} </span>
           <span  className='menu-client-informations'>Data de registro: {formatDateAndDifference(client.entranceDate)}</span>
           <span  className='menu-client-informations'>Data de aniversário: {formatBirthdateAndAge(client.birthDate)}</span>
+          <span  className='menu-client-informations'>Endereço: {client.address ? client.address : 'Sem registro'}</span>
+          <span  className='menu-client-informations'>CPF: {client.cpf ? client.cpf : 'Sem registro'}</span>
           <div className='menu-client-div-buttons'>
               <button onClick={() => setCurrentPage('PutClient')}>Alterar dados</button>
               <button onClick={() => setCurrentPage('SessionManager')}>Gerenciar sessões</button>

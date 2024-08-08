@@ -89,6 +89,7 @@ function App() {
         <Route
             path="/home"
             element={<HomePage
+            
               isLoggedIn={isLoggedIn}
               username={username}
             />}

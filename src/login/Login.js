@@ -54,7 +54,7 @@ const onSubmit = async (event) => {
   event.preventDefault()
 
 
-  if(!(user[0].name === userName) || !(user[0].password === password)){
+  if(!(user[0].name.trim() === userName.trim()) || !(user[0].password.trim() === password.trim())){
     
     setLoginError('Usuário ou senha incorreto(s)')
   }else{

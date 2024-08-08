@@ -54,3 +54,17 @@
 .pagination-button-active {
     color: rgb(0, 38, 255);
 }
+
+.caps-lock-warning {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    color: red;
+}
+
+.uppercase-warning {
+    margin: 0px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: red;
+}

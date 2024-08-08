@@ -27,6 +27,46 @@ function Clients({isLoggedIn,limitTimeOfSession,limitDurationOfSession,numberOfC
         document.body.classList.remove('no-scroll');
       }
 
+      const pagamentColor = (client) => {
+
+        if (!client.pagamentHistory || client.pagamentHistory.length === 0) {
+            return 'red'; 
+        }
+        const payday = client.payday;
+        const today = new Date();
+        const dayToday = today.getDate();
+        const monthToday = today.getMonth();
+        const yearToday = today.getFullYear();
+    
+        const sortPagamentList = client.pagamentHistory.sort((a,b) => {
+            return new Date(b.payDate) - new Date(a.payDate)
+        })
+    
+        const lastPayDate =  new Date(sortPagamentList[0].payDate);
+        const lastPayYear = lastPayDate.getFullYear();
+        const lastPayMonth = lastPayDate.getMonth();
+    
+        if (yearToday !== lastPayYear  ) {
+            return 'red';
+        }
+        if(lastPayMonth === monthToday && yearToday === lastPayYear) {
+            return 'green'
+        }else {
+            if(monthToday - 1 !== lastPayMonth){
+                return 'red'
+            }else{
+                if (payday < dayToday) {
+                    return 'red';
+                } else if (payday === dayToday) {
+                    return 'gold';
+                } else {
+                    return 'green';
+                    }
+                }
+            }
+           
+        }
+
       const [nameFilter,setNameFilter] = useState(null)
 
       const handleNameFilterChange = (event) => {
@@ -75,6 +115,12 @@ function Clients({isLoggedIn,limitTimeOfSession,limitDurationOfSession,numberOfC
         setClientType(event.target.value)
         setCurrentPage(1)
       }
+      const [pagamentFilter,setPagamentFilter] = useState('all')
+
+      const handlePagamentFilterChange  = (event) => {
+       setPagamentFilter(event.target.value)
+      }
+     
 
       const [sortOptions,setSortOptions] = useState('recent')
 
@@ -109,7 +155,9 @@ function Clients({isLoggedIn,limitTimeOfSession,limitDurationOfSession,numberOfC
            pagamentDayFilter ? client.payday === parseInt(pagamentDayFilter,10) : true
         const clientTypeMatch = clientType === 'all' ? true : clientType === 'payment-on-act' ? client.clientPayOnDay === true : 
         clientType === 'mensal' ? client.clientPayOnDay === false : clientType === 'semanal' ? (client.daysOfSession.length > 0 ? client.daysOfSession[0].everyWeek : false)  : clientType === 'bisemanal' ?  (client.daysOfSession.length > 0 ? !client.daysOfSession[0].everyWeek : false) : true
-        return nameMatch && activeMatch && pagamentDayMatch && clientTypeMatch
+        const pagamentClientFilter =  pagamentFilter === 'all' ? true : client.clientPayOnDay === false ? (pagamentFilter === 'ok' ? pagamentColor(client) === 'green' : pagamentFilter === 'today' ? pagamentColor(client) === 'gold': pagamentFilter === 'delay' ? pagamentColor(client) === 'red' : false) :  false
+
+        return nameMatch && activeMatch && pagamentDayMatch && clientTypeMatch && pagamentClientFilter
     }).sort((a,b) => {
         if(sortOptions === 'recent'){
             return new Date(b.entranceDate) - new Date(a.entranceDate)
@@ -194,6 +242,15 @@ function Clients({isLoggedIn,limitTimeOfSession,limitDurationOfSession,numberOfC
                                 <option value='bisemanal'>Bisemanal</option>
                                 <option value='payment-on-act'>Pagamento no ato</option>
                                 
+                            </select>
+                        </div>
+                        <div className='session-manager-filters-item '>
+                            <label>Pagamento</label>
+                            <select value={pagamentFilter} onChange={handlePagamentFilterChange}  className='client-filters-select'>
+                                <option value={'all'}>Todos</option>
+                                <option value={'ok'}>Apenas em dia</option>
+                                <option value={'today'}>Apenas pagamento hoje</option>
+                                <option value={'delay'}>Apenas atrasado</option>
                             </select>
                         </div>
                         <div className='session-manager-filters-item'>
